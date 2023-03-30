@@ -1,0 +1,25 @@
+<h1>Review before Delete</h1>
+{% if kota %}
+
+<form method="post" action="delete_hos1">
+    <input type="hidden" name="H1" value="{{kota[3]}}" />
+
+    <p>hospitalname: <input value="{{kota[0]}}" type="text" name="T1"/></p>
+    <p>address: <input value="{{kota[1]}}" type="text" name="T2"/></p>
+    <p>contact: <input value="{{kota[2]}}" type="text" name="T3"/></p>
+    <p>email: <input value="{{kota[3]}}" type="text" name="T4"/></p>
+    <p>emergency: <input value="{{kota[4]}}" type="text" name="T5"/></p>
+    <p>emergencycontact: <input value="{{kota[5]}}" type="text" name="T7"/></p>
+    <p>ac: <input value="{{kota[6]}}" type="text" name="T8"/></p>
+    <p>noac: <input value="{{kota[7]}}" type="text" name="T10"/></p>
+    <p>nogeneral <input value="{{kota[8]}}" type="text" name="T11"/></p>
+    <p>opd: <input value="{{kota[9]}}" type="text" name="T12"/></p>
+    <p>surgery: <input value="{{kota[10]}}" type="text" name="T14"/></p>
+    <p>specialised: <input value="{{kota[11]}}" type="text" name="T16"/></p>
+    <p><input type="submit" name="B1"  value="Delete"/> </p>
+</form>
+
+{% elif msg %}
+    <h3>{{msg}}</h3>
+{% endif %}
+<p><a href="show_hos">Back</a> </p>

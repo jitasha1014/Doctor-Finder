@@ -1,0 +1,38 @@
+{% extends 'Master.html' %}
+{% block master %}
+
+    <form method="post" id="search" >
+        <p><h4>Specialised</h4>
+            <select name="T16">
+                <option>Cardiologist</option>
+                <option>Cardiovascular Surgeon</option>
+                <option>Dentist</option>
+                <option>Emergency Doctors</option>
+                <option>ENT Specialist</option>
+                <option>Gastroenterologist</option>
+                <option>General Psychiatrist</option>
+            </select>
+        </p>
+        <p><input type="submit" name="B1" value="Search" /></p>
+    </form>
+    {% if result %}
+        {% for row in result %}
+            <table width="100%" >
+                <tr>
+                    <td width="33%" style="font-family: Arial;">
+                        Name : {{ row[0] }} <br/>
+                        Speciality: {{ row[11] }}<br/>
+
+                    </td>
+                    <td width="33%" style="font-family: Arial;">
+                        Hospital : {{ row[1] }}<br/>
+                        Address : {{ row[12] }}<br/>
+                        Contact : {{ row[13] }}<br/>
+                        Email : {{ row[14] }}
+                    </td>
+                </tr>
+            </table>
+        {% endfor %}
+    {% endif %}
+
+{% endblock %}

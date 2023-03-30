@@ -1,0 +1,249 @@
+{% extends 'AdminMaster.html' %}
+{% block am %}
+
+
+<form onSubmit="return A()" method="post" action="horeg">
+<h4 style="text-align:center; padding-top:10px;">Hospital Registration</h4>
+<table  style="margin:0 auto ;font-size:20px;">
+<tr><td>Hospital Name-</td><td><input type="text" id="txt1" name="T1" /><br><span id="txt1_err"></span></td></tr>
+<tr><td>Address-</td><td><input type="text" id="txt2" name="T2" /><br><span id="txt2_err"></span></td></tr>
+<tr><td>Contact-</td><td><input type="text" id="txt3" name="T3"/><br><span id="txt3_err" ></span></td></tr>
+<tr><td>Email-</td><td><input type="email" id="txt4" name="T4"/><br><span id="txt4_err" ></span></td></tr>
+<tr><td>Emergency-</td><td>Yes<input type="radio" id="txt5" name="T5"/><span id="txt5_err"></span>No<input type="radio" id="txt6" name="T5"/><span id="txt6_err" ></span></td></tr>
+<tr><td>Emergency Contact-</td><td><input type="text" id="txt7" name="T7" /><br><span id="txt7_err"></span></td></tr>
+<tr><td>AC Beds-</td><td>Yes<input type="radio" id="txt8" name="T8" /><span id="txt8_err" ></span>No<input type="radio" id="txt9" name="T8" /><span id="txt9_err"></span></td></tr>
+<tr><td>No.of AC Beds-</td><td><input type="text" id="txt10" name="T10" /><br><span id="txt10_err"></span></td></tr>
+<tr><td>No.of General Beds-</td><td><input type="text" id="txt11" name="T11"/><br><span id="txt11_err"></span></td></tr>
+<tr><td>OPD-</td><td>Yes<input type="radio" id="txt12" name="T12"/><span id="txt12_err" ></span>No<input type="radio" id="txt13" name="T12"/><span id="txt13_err"></span></td></tr>
+<tr><td>Surgery-</td><td>Yes<input type="radio" id="txt14" name="T14"/><span id="txt14_err" ></span>No<input type="radio" id="txt15" name="T14"/><span id="txt15_err"></span></td></tr>
+<tr><td>Specalised-</td><td><input type="text" id="txt16" name="T16" /><br><span id="txt16_err"></span></td></tr>
+<tr><td>Password-</td><td><input type="text" id="txt17" name="T17"/><span id="txt17_err"></span></td></tr>
+<tr><td>Confirm Password-</td><td><input type="text" id="txt18" name="T18"/><span id="txt18_err"></span></td></tr>
+</table>
+<p style="text-align:center; padding-top:20px; font-size:18px;"><input type="submit" id="btn1" name="B1" value="Register" /></p>
+</form>
+
+{% if Hospital %}
+    <h3>{{Hospital}}</h3>
+{% endif %}
+
+<script>
+    function A()
+	{
+		var t1=document.getElementById("txt1");
+		var s1=document.getElementById("txt1_err");
+		var t2=document.getElementById("txt2");
+		var s2=document.getElementById("txt2_err");
+		var t3=document.getElementById("txt3");
+		var s3=document.getElementById("txt3_err");
+		var t4=document.getElementById("txt4");
+		var s4=document.getElementById("txt4_err");
+		var t5=document.getElementById("txt5");
+		var s5=document.getElementById("txt5_err");
+		var t6=document.getElementById("txt6");
+		var s6=document.getElementById("txt6_err");
+		var t7=document.getElementById("txt7");
+		var s7=document.getElementById("txt7_err");
+		var t8=document.getElementById("txt8");
+		var s8=document.getElementById("txt8_err");
+		var t9=document.getElementById("txt9");
+		var s9=document.getElementById("txt9_err");
+		var t10=document.getElementById("txt10");
+		var s10=document.getElementById("txt10_err");
+		var t11=document.getElementById("txt11");
+		var s11=document.getElementById("txt11_err");
+		var t12=document.getElementById("txt12");
+		var s12=document.getElementById("txt12_err");
+		var t13=document.getElementById("txt13");
+		var s13=document.getElementById("txt13_err");
+		var t14=document.getElementById("txt14");
+		var s14=document.getElementById("txt14_err");
+		var t15=document.getElementById("txt15");
+		var s15=document.getElementById("txt15_err");
+		var t16=document.getElementById("txt16");
+		var s16=document.getElementById("txt16_err");
+		var t17=document.getElementById("txt17");
+		var s17=document.getElementById("txt17_err");
+		var t18=document.getElementById("txt18");
+		var s18=document.getElementById("txt18_err");
+		
+		
+		var a=t1.value;	
+		var b=t2.value;
+		var c=t3.value;
+		var d=t4.value;
+		var e=t5.value;
+		var f=t6.value;
+		var g=t7.value;
+		var h=t8.value;
+		var i=t9.value;
+		var j=t10.value;
+		var k=t11.value;
+		var l=t12.value;
+		var m=t13.value;
+		var n=t14.value;
+		var o=t15.value;
+		var p=t16.value;
+		var q=t17.value;
+		var r=t18.value;
+		
+		
+		s1.innerHTML="";
+		s2.innerHTML="";
+		s3.innerHTML="";
+		s4.innerHTML="";
+		s5.innerHTML="";
+		s6.innerHTML="";
+		s7.innerHTML="";
+		s8.innerHTML="";
+		s9.innerHTML="";
+		s10.innerHTML="";
+		s11.innerHTML="";
+		s12.innerHTML="";
+		s13.innerHTML="";
+		s14.innerHTML="";
+		s15.innerHTML="";
+		s16.innerHTML="";
+		s17.innerHTML="";
+		s18.innerHTML="";
+		
+		if(a==null|| a=="")
+		{
+			s1.innerHTML="*****";
+			t1.focus();
+			return false;
+		}
+		else if(IsAlpha(a)==false)
+		{
+			s1.innerHTML="Only Alphabets";
+			t1.select();
+			return false;
+		}
+		else if(b==null || b=="")
+		{
+			s2.innerHTML="*****";
+			t2.focus();
+			return false;
+		}
+		else if(c==null || c=="")
+		{
+			s3.innerHTML="*****";
+			t3.focus();
+			return false;
+		}
+		else if(IsNumeric(c)==false)
+		{
+			s3.innerHTML="Only digits";
+			t3.select();
+			return false;
+		}
+		else if(d==null || d=="")
+		{
+			s4.innerHTML="*****";
+			t4.focus();
+			return false;
+		}
+		else if(IsNumeric(g)==false)
+		{
+			s7.innerHTML="Only digits";
+			t7.select();
+			return false;
+		}
+		else if(IsNumeric(j)==false)
+		{
+			s10.innerHTML="Only digits";
+			t10.select();
+			return false;
+		}
+		if(k==null|| k=="")
+		{
+			s11.innerHTML="*****";
+			t11.focus();
+			return false;
+		}
+		else if(IsNumeric(k)==false)
+		{
+			s11.innerHTML="Only digits";
+			t11.select();
+			return false;
+		}
+		if(p==null|| p=="")
+		{
+			s16.innerHTML="*****";
+			t16.focus();
+			return false;
+		}
+		else if(IsAlpha(o)==false)
+		{
+			s16.innerHTML="Only Alphabets";
+			t16.select();
+			return false;
+		}
+		else if(q==null || q=="")
+		{
+			s17.innerHTML="*";
+			t17.focus();
+			return false;
+		}
+		else if(r==null || r=="")
+		{
+			s18.innerHTML="*";
+			t18.focus();
+			return false;
+		}
+		else if(match_pass(q,r)==false)
+		{
+			s18.innerHTML="Not Match";
+			t18.select();
+			return false;
+		}
+	}
+	
+	
+    function IsAlpha(ele)//only alphabets
+    {
+	    var sText=ele;
+	
+	    var flag=true;
+	    var ch;
+	
+	    for(i=0;i<sText.length && flag==true;i++)
+    	{
+		    ch=sText.charAt(i);
+		    if(!(ch>='a' && ch<='z' || ch>='A' && ch<='Z' || ch==' '))
+		    {
+			    flag=false;
+		    }
+	    } 
+	    return flag;
+    }
+
+    function IsNumeric(ele)//Only numeric
+    {
+    	var sText=ele;
+	
+	    var f=true;
+	    var ch;
+	    for(i=0;i<sText.length && f==true; i++)
+	    {
+		    ch=sText.charAt(i);
+		    if(!(ch>='0' && ch<='9'))
+		    {
+			    f=false;		
+		    }
+		}
+		return f;
+    }
+    function match_pass(ele1,ele2)//password and confirm password
+    {
+	    if(ele1!=ele2)
+	    {
+		    return false;
+	    }
+	    else
+	    {
+		    return true;
+		}
+    }
+</script>
+{% endblock %}

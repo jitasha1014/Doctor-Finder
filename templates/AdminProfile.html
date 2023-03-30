@@ -1,0 +1,27 @@
+{% extends 'AdminMaster.html' %}
+{% block am %}
+<h1 style="padding-top:10px;">
+    Profile
+</h1>
+{% if row %}
+{% if photo=='no' %}
+        <p><a href="adminphoto">Upload Photo</a> </p>
+    {% else %}
+        <img src="../static/photos/{{ photo }}" width="100" height="100" />
+        <br/>
+        <p><a href="change_adminphoto">Change Photo</a> </p>
+{% endif %}
+<p style="margin:0 auto ;font-size:20px;">
+    Name - {{row[0]}} <br />
+    Address - {{row[1]}} <br />
+    Contact - {{row[2]}} <br />
+    Email - {{row[3]}} <br />
+</p>
+{% endif %}
+ <form style=" padding-top:20px; font-size:18px;" method="post" action="edit_admin">
+     <input type="hidden" name="H1" value="{{row[3]}}"/>
+     <input type="submit" name="B1" value="Edit"/>
+ </form>
+<p style=" font-size:18px;"><a href="cp_admin"><input type="submit" id="btn1" name="B1" value="Change Password" /></a></p>
+
+{% endblock %}

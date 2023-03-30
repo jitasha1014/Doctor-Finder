@@ -1,0 +1,53 @@
+{% extends 'AdminMaster.html' %}
+{% block am %}
+<h1 style="color:#47726B;font-family:Verdana, Geneva, sans-serif; ">Hospital Recodes</h1>
+<hr/>
+{% if kota %}
+
+
+
+    {% for k in kota %}
+
+        {% if k[12]=='no' %}
+            <form method="post" enctype="multipart/form-data" action="hphoto1">
+             <p>
+                   <input type="hidden" name="H1" value="{{ k[3] }}" />
+                   Photo <input type="file" name="F1"  />
+                 <input type="submit" name="B1" value="Upload" />
+                 </p>
+             </form>
+        {% else %}
+            <img src="../static/photos/{{ k[12] }}" width="200" height="100" />
+        {% endif %}
+
+        <h3>{{k[0]}}</h3>
+        <p>
+            Address - {{k[1]}}<br/>
+            Contact - {{k[2]}}<br/>
+            Email - {{k[3]}}<br/>
+            Emergency - {{k[4]}}<br/>
+            Emergency Contact - {{k[5]}}<br/>
+            AC - {{k[6]}}<br/>
+            No. AC - {{k[7]}}<br/>
+            No. General - {{k[8]}}<br/>
+            OPD - {{k[9]}}<br/>
+            Surgery - {{k[10]}}<br/>
+            Specialised - {{k[11]}}<br/>
+        </p>
+        <table border="0">
+            <tr><td><form method="post" action="edit_hos">
+                        <input type="hidden" name="H1" value="{{k[3]}}"/>
+                        <input type="submit" name="B1" value="Edit"/>
+                    </form></td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                <td><form method="post" action="delete_hos">
+                        <input type="hidden" name="H1" value="{{k[3]}}"/>
+                        <input type="submit" name="B1" value="Delete"/>
+                </form></td></tr>
+        </table>
+        <hr/>
+    {% endfor %}
+{% elif msg %}
+    <h3>{{msg}}</h3>
+{% endif %}
+{% endblock %}

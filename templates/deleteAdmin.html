@@ -1,0 +1,17 @@
+<h1>Review before Delete</h1>
+{% if kota %}
+
+<form  method="post" action="delete_admin1">
+    <input type="hidden" name="H1" value="{{kota[3]}}"/>
+
+    <p>Name: {{kota[0]}}</p>
+    <p>Address: {{kota[1]}}</p>
+    <p>Contact: {{kota[2]}}</p>
+    <p>Email: {{kota[3]}}</p>
+    <p><input type="submit" name="B1" value="Delete"/></p>
+</form>
+
+{% elif msg %}
+    <h3>{{msg}}</h3>
+{% endif %}
+<p><a href="show_admins">Back</a> </p>

@@ -1,0 +1,52 @@
+{% extends "HospitalMaster.html" %}
+{% block hm %}
+<h3 style="text-align:center; padding-top:10px;">Welcome to Hospital</h3>
+
+{% if doctors %}
+    {% for k in doctors %}
+        {% if k[12]=='no' %}
+             <form method="post" enctype="multipart/form-data" action="hospital_photo">
+             <p>
+                   <input type="hidden" name="H1" value="{{ k[3] }}" />
+                   Photo <input type="file" name="F1"  />
+                 <input type="submit" name="B1" value="Upload" />
+                 </p>
+             </form>
+    {% else %}
+        <img src="../static/hospital_photos/{{ k[4] }}" width="200" height="100" />
+        <form method="post" action="change_hospital_photo">
+        <input type="hidden" name="H1" value="{{ k[3] }}" />
+        <input type="hidden" name="H2" value="{{ k[4] }}" />
+        <input type="submit" name="B1" value="Change" />
+        </form>
+    {% endif %}
+        <h3>{{k[0]}}</h3>
+        <p>
+            Personal Address - {{k[1]}}<br/>
+            Work Address - {{k[2]}}<br/>
+            Personal Contact - {{k[3]}}<br/>
+            Work Contact - {{k[4]}}<br/>
+            Email - {{k[5]}}<br/>
+            Specialised - {{k[6]}}<br/>
+            Experience - {{k[7]}}<br/>
+            Fee Range - {{k[8]}}<br/>
+        </p>
+    <table border="0">
+        <tr><td>
+            <form method="post" action="edit_dr">
+            <input type="hidden" name="H1" value="{{k[5]}}"/>
+            <input type="submit" name="B1" value="Edit"/>
+        </form></td><td></td>
+        <td><form method="post" action="delete_dr">
+            <input type="hidden" name="H1" value="{{k[5]}}"/>
+            <input type="submit" name="B1" value="Delete"/>
+        </form>
+        </td>
+        </tr>
+    </table>
+
+        <hr/>
+    {% endfor %}
+{% endif %}
+<p><a href="hospital_profile">Profile</a></p>
+{% endblock %}

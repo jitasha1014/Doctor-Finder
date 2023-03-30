@@ -1,0 +1,19 @@
+{% extends 'AdminMaster.html' %}
+{% block am %}
+<h1 style="color:#47726B;font-family:Verdana, Geneva, sans-serif; ">Admin Recordes</h1>
+<hr/>
+{% if kota %}
+    {% for k in kota %}
+        <h3>{{k[0]}}</h3>
+        <p>
+          Address - {{k[1]}} <br/>
+          Contact - {{k[2]}} <br/>
+          Email - {{k[3]}} <br/>
+        </p>
+        <hr/>
+    {% endfor %}
+{% elif msg %}
+     <h3>{{msg}}</h3>
+{% endif %}
+
+{% endblock %}

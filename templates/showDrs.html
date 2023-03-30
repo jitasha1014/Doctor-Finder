@@ -1,0 +1,37 @@
+{% extends 'HospitalMaster.html' %}
+{% block hm %}
+<h1 style="color:#47726B;font-family:Verdana, Geneva, sans-serif; ">Doctors Recodes</h1>
+<hr/>
+{% if doctors %}
+    {% for k in doctors %}
+        <h3>{{k[0]}}</h3>
+        <p>
+            Personal Address - {{k[1]}}<br/>
+            Work Address - {{k[2]}}<br/>
+            Personal Contact - {{k[3]}}<br/>
+            Work Contact - {{k[4]}}<br/>
+            Email - {{k[5]}}<br/>
+            Specialised - {{k[6]}}<br/>
+            Experience - {{k[7]}}<br/>
+            Fee Range - {{k[8]}}<br/>
+        </p>
+    <table border="0">
+        <tr><td>
+            <form method="post" action="edit_dr">
+            <input type="hidden" name="H1" value="{{k[5]}}"/>
+            <input type="submit" name="B1" value="Edit"/>
+        </form></td><td></td>
+        <td><form method="post" action="delete_dr">
+            <input type="hidden" name="H1" value="{{k[5]}}"/>
+            <input type="submit" name="B1" value="Delete"/>
+        </form>
+        </td>
+        </tr>
+    </table>
+
+        <hr/>
+    {% endfor %}
+{% elif msg %}
+    <h3>{{msg}}</h3>
+{% endif %}
+{% endblock %}

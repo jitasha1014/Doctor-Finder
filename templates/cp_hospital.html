@@ -1,0 +1,95 @@
+{% extends 'HospitalMaster.html' %}
+{% block hm %}
+<body>
+<form class="a" method="post" onSubmit="return A()" action="cp_hospital">
+    <h1>Hospital Setting</h1>
+<table class="table" >
+<tr>
+<td class="between">Old Password-</td><td><input class="input" id="txt1" type="password" name="T1" id="txt1"/></td><td><span id="txt1_err"></span></td></tr>
+<tr><td class="between">New Password-</td><td><input class="input" id="txt2" name="T2" type="password" id="txt2"/></td><td><span id="txt2_err"></span></td></tr>
+<tr><td class="between">Confirm Password-</td><td><input class="input" id="txt3" type="password" name="T3" id="txt3"/></td><td><span id="txt3_err"></span></td></tr></table>
+<p><input class="button"  type="submit" id="btn1" value="Change"/></p>
+</form>
+
+{% if msg %}
+    <h3>{{msg}}</h3>
+{% endif %}
+
+
+<script>
+function A()
+	{
+		var t1=document.getElementById("txt1");
+		var s1=document.getElementById("txt1_err");
+		var t2=document.getElementById("txt2");
+		var s2=document.getElementById("txt2_err");
+		var t3=document.getElementById("txt3");
+		var s3=document.getElementById("txt3_err");
+
+		s1.innerHTML="";
+		s2.innerHTML="";
+		s3.innerHTML="";
+
+		var a=t1.value;
+		var b=t2.value;
+		var c=t3.value;
+
+
+		if(a==null || a=="")
+		{
+			s1.innerHTML="*";
+			t1.focus();
+			return false;
+		}
+		else if(b==null || b=="")
+		{
+			s2.innerHTML="*";
+			t2.focus();
+			return false;
+		}
+		else if(not_pass(a,b)==false)
+		{
+			s2.innerHTML="Set New Password";
+			t2.select();
+			return false;
+		}
+		else if(c==null || c=="")
+		{
+			s3.innerHTML="*";
+			t3.focus();
+			return false;
+		}
+		else if(match_pass(b,c)==false)
+		{
+			s3.innerHTML="Not Match";
+			t3.select();
+			return false;
+		}
+
+	}
+
+    function match_pass(ele1,ele2)//password and confirm password
+    {
+	    if(ele1!=ele2)
+	    {
+		    return false;
+	    }
+	    else
+	    {
+		    return true;
+		}
+    }
+	function not_pass(ele1,ele2)//password and confirm password
+    {
+	    if(ele1==ele2)
+	    {
+		    return false;
+	    }
+	    else
+	    {
+		    return true;
+		}
+    }
+
+</script>
+{% endblock %}

@@ -1,0 +1,50 @@
+<html>
+<head>
+<link href="static/bootstrap.css" rel="stylesheet" type="text/css"/>
+<script src="static/jquery.min.js">
+</script>
+<script>
+    $(document).ready(function(e) {
+        $("#b1").click(function(){
+			$("#item").slideToggle();
+		});
+    });
+</script>
+<link href="static/main.css" rel="stylesheet" type="text/css"/>
+<link href="static/bootstrap.js" rel="stylesheet"  type="text/css" />
+</head>
+<body>
+<div class="container" id="back" style="color:#224A42">
+    <h1 style="font-family:Verdana, Geneva, sans-serif ; font-size:40px;"><b>Doctor Finder</b></h1>
+    <h2 style="font-family:Verdana, Geneva, sans-serif ; font-size:30px;"><b>Admin</b></h2>
+</div>
+<div class="container">
+<nav class="navbar navbar-expand-lg navbar-dark" id="menu">
+    <button class="navbar-toggler">
+         <span class="navbar-toggler-icon" id="b1"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="item">
+    <ul class="navbar-nav  ml-5 mr-auto text-light">
+        <li class="nav-item"><a  class="nav-link text-muted" href="/admin_home"><h6><b>Home</b></h6></a></li>
+        <li class="nav-item"><a id="space" class="nav-link text-muted" href="/adminreg"><h6><b>New Admin</b></h6></a></li>
+        <li class="nav-item"><a id="space" class="nav-link text-muted" href="/horeg"><h6><b>New Hospital</b></h6></a></li>
+        <li class="nav-item"><a id="space" class="nav-link text-muted" href="/show_hos"><h6><b>Hospitals</b></h6></a></li>
+        <li class="nav-item"><a id="space" class="nav-link text-muted" href="/admin_profile"><h6><b>Profile</b></h6></a></li>
+        <li class="nav-item"><a id="space" class="nav-link text-muted" href="/logout"><h6><b>Logout</b></h6></a></li></ul>
+    </div>
+
+</nav>
+    <div class="container" style="min-height:400px;">
+        {% block am %}
+        {% endblock %}
+
+    </div>
+</div>
+<div class="container text-black-50" id="contact">
+<h4>Contact</h4>
+<p>Gmail : mydocter@gmail.com</p>
+<p>Contact : 768437567</p>
+<p>Website : www.mydocter.com</p>
+</div>
+</body>
+</html>

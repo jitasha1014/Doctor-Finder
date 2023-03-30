@@ -1,0 +1,18 @@
+{% extends 'AdminMaster.html' %}
+{% block am %}
+<h1>Edit and Save</h1>
+{% if kota %}
+
+<form  method="post" action="edit_admin1">
+    <p>Name: <input value="{{kota[0]}}" type="text" name="T1"/> </p>
+    <p>Address: <input value="{{kota[1]}}" type="text" name="T2"/> </p>
+    <p>Contact: <input value="{{kota[2]}}" type="text" name="T3"/> </p>
+    <p>Email: <input value="{{kota[3]}}" type="text" readonly name="T4"/> </p>
+    <p><input type="submit" name="B1"  value="Save Changes"/> </p>
+</form>
+
+{% elif msg %}
+    <h3>{{msg}}</h3>
+{% endif %}
+<p><a href="admin_profile">Back</a> </p>
+{% endblock %}

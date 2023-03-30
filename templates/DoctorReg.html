@@ -1,0 +1,193 @@
+{% extends 'HospitalMaster.html' %}
+{% block hm %}
+
+<form onSubmit="return A()" method="post" action="drreg">
+<h4 style="text-align:center; padding-top:10px;">Doctor Registration</h4>
+<table style="margin:0 auto ;font-size:20px;">
+<tr><td>Doctor Name-&nbsp;&nbsp;&nbsp;&nbsp;</td><td><input type="text" id="txt1" name="T1" /><span id="txt1_err"></span></td></tr>
+<tr><td>Personal Address-&nbsp;&nbsp;</td><td><input type="text" id="txt2" name="T2" /><span id="txt2_err"></span></td></tr>
+<tr><td>Work Address-</td><td><input type="text" id="txt3" name="T3"/><span id="txt3_err" ></span></td></tr>
+<tr><td>Personal Contact-&nbsp;&nbsp;</td><td><input type="text" id="txt4" name="T4"/><span id="txt4_err" ></span></td></tr>
+<tr><td>Work Contact-</td><td><input type="text" id="txt5" name="T5"/><span id="txt5_err" ></span></td></tr>
+
+<tr><td>Specialised-</td><td><input type="text" id="txt7" name="T7"/><span id="txt7_err"></span></td></tr>
+<tr><td>Experience(in yr.)-</td><td><input type="text" id="txt8" name="T8"/><span id="txt8_err"></span></td></tr>
+<tr><td>Fee Range-</td><td><input type="text" id="txt9" name="T9"/><span id="txt9_err"></span></td></tr>
+</table>
+<p style="text-align:center; padding-top:20px; font-size:18px;"><input type="submit" id="btn1" name="B1" value="Register" /></p>
+</form>
+
+{% if Doctor %}
+    <h3>{{Doctor}}</h3>
+{% endif %}
+
+<script>
+    function A()
+	{
+		var t1=document.getElementById("txt1");
+		var s1=document.getElementById("txt1_err");
+		var t2=document.getElementById("txt2");
+		var s2=document.getElementById("txt2_err");
+		var t3=document.getElementById("txt3");
+		var s3=document.getElementById("txt3_err");
+		var t4=document.getElementById("txt4");
+		var s4=document.getElementById("txt4_err");
+		var t5=document.getElementById("txt5");
+		var s5=document.getElementById("txt5_err");
+		var t6=document.getElementById("txt6");
+		var s6=document.getElementById("txt6_err");
+		var t7=document.getElementById("txt7");
+		var s7=document.getElementById("txt7_err");
+		var t8=document.getElementById("txt8");
+		var s8=document.getElementById("txt8_err");
+		var t9=document.getElementById("txt9");
+		var s9=document.getElementById("txt9_err");
+		
+		
+		var a=t1.value;	
+		var b=t2.value;
+		var c=t3.value;
+		var d=t4.value;
+		var e=t5.value;
+		var f=t6.value;
+		var g=t7.value;
+		var h=t8.value;
+		var i=t9.value;
+		
+		
+		s1.innerHTML="";
+		s2.innerHTML="";
+		s3.innerHTML="";
+		s4.innerHTML="";
+		s5.innerHTML="";
+		s6.innerHTML="";
+		s7.innerHTML="";
+		s8.innerHTML="";
+		s9.innerHTML="";
+		
+		
+		if(a==null|| a=="")
+		{
+			s1.innerHTML="*";
+			t1.focus();
+			return false;
+		}
+		else if(IsAlpha(a)==false)
+		{
+			s1.innerHTML="Only Alphabets";
+			t1.select();
+			return false;
+		}
+		else if(b==null || b=="")
+		{
+			s2.innerHTML="*";
+			t2.focus();
+			return false;
+		}
+		else if(c==null || c=="")
+		{
+			s3.innerHTML="*";
+			t3.focus();
+			return false;
+		}
+		else if(d==null || d=="")
+		{
+			s4.innerHTML="*";
+			t4.focus();
+			return false;
+		}
+		else if(IsNumeric(d)==false)
+		{
+			s4.innerHTML="Only digits";
+			t4.select();
+			return false;
+		}
+		else if(e==null || e=="")
+		{
+			s5.innerHTML="*";
+			t5.focus();
+			return false;
+		}
+		else if(IsNumeric(e)==false)
+		{
+			s5.innerHTML="Only digits";
+			t5.select();
+			return false;
+		}
+		else if(f==null || f=="")
+		{
+			s6.innerHTML="*";
+			t6.focus();
+			return false;
+		}
+		if(g==null|| g=="")
+		{
+			s7.innerHTML="*";
+			t7.focus();
+			return false;
+		}
+		else if(IsAlpha(g)==false)
+		{
+			s7.innerHTML="Only Alphabets";
+			t7.select();
+			return false;
+		}
+		if(h==null|| h=="")
+		{
+			s8.innerHTML="*";
+			t8.focus();
+			return false;
+		}
+		else if(IsNumeric(h)==false)
+		{
+			s8.innerHTML="Only digits";
+			t8.select();
+			return false;
+		}
+		if(i==null|| i=="")
+		{
+			s9.innerHTML="*";
+			t9.focus();
+			return false;
+		}
+		
+		
+	}
+	
+	
+    function IsAlpha(ele)//only alphabets
+    {
+	    var sText=ele;
+	
+	    var flag=true;
+	    var ch;
+	
+	    for(i=0;i<sText.length && flag==true;i++)
+    	{
+		    ch=sText.charAt(i);
+		    if(!(ch>='a' && ch<='z' || ch>='A' && ch<='Z' || ch==' '))
+		    {
+			    flag=false;
+		    }
+	    } 
+	    return flag;
+    }
+
+    function IsNumeric(ele)//Only numeric
+    {
+    	var sText=ele;
+	
+	    var f=true;
+	    var ch;
+	    for(i=0;i<sText.length && f==true; i++)
+	    {
+		    ch=sText.charAt(i);
+		    if(!(ch>='0' && ch<='9'))
+		    {
+			    f=false;		
+		    }
+		}
+		return f;
+    }
+</script>
+{% endblock %}

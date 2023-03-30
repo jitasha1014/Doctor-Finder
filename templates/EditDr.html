@@ -1,0 +1,23 @@
+{% extends 'HospitalMaster.html' %}
+{% block hm %}
+<h1>Edit and Save</h1>
+{% if kota %}
+
+<form method="post" action="edit_dr1">
+    <p>drname: <input value="{{kota[0]}}" type="text" name="T1"/></p>
+    <p>personaladdress: <input value="{{kota[1]}}" type="text" name="T2"/></p>
+    <p>workaddress: <input value="{{kota[2]}}" type="text" name="T3"/></p>
+    <p>personalcontact: <input value="{{kota[3]}}" type="text" name="T4"/></p>
+    <p>workcontact: <input value="{{kota[4]}}" type="text" name="T5"/></p>
+    <p>email: <input value="{{kota[5]}}" type="text" name="T6"/></p>
+    <p>specialised: <input value="{{kota[6]}}" type="text" name="T7"/></p>
+    <p>experience: <input value="{{kota[7]}}" type="text" name="T8"/></p>
+    <p>feerange: <input value="{{kota[8]}}" type="text" name="T9"/></p>
+    <p><input type="submit" name="B1"  value="Save Changes"/> </p>
+</form>
+
+{% elif msg %}
+    <h3>{{msg}}</h3>
+{% endif %}
+<p><a href="show_drs">Back</a> </p>
+{% endblock %}

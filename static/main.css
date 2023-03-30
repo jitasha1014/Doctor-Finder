@@ -1,0 +1,43 @@
+#back
+{
+	min-height:450px;
+	width:1100px;
+	background-image:url(images/back.jpg);
+	background-size:100%;
+	text-align:center;
+	padding-top:170px;
+	padding-left:250px;
+}
+#menu
+{
+    width:1100px;
+    margin:0 auto;
+    background-color:#000;
+}
+#contact
+{
+    background-color:#E1E1E1;
+    margin:0 auto;
+	width:1100px;
+	padding-left:30px;
+	box-shadow:0px 10px 10px #CCCCCC;
+}
+#search
+{
+    text-align:center;
+    min-height:200px;
+    padding-top:40px;
+    font-size:15px;
+}
+#login
+{
+    min-height:190px;
+    padding-top:50px;
+    margin:0 auto;
+
+}
+#space
+{
+    padding-left:40px;
+    padding-right:40px;
+}

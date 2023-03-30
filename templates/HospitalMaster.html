@@ -1,0 +1,50 @@
+<html>
+<head>
+<link href="static/bootstrap.css" rel="stylesheet" type="text/css"/>
+<script src="static/jquery.min.js">
+</script>
+<script>
+    $(document).ready(function(e) {
+        $("#b1").click(function(){
+			$("#item").slideToggle();
+		});
+    });
+</script>
+<link href="static/main.css" rel="stylesheet" type="text/css"/>
+<link href="static/bootstrap.js" rel="stylesheet"  type="text/css" />
+</head>
+<body>
+<div class="container" id="back" style="color:#224A42">
+    <h1 style="font-family:Verdana, Geneva, sans-serif ; font-size:40px;"><b>My Doctor</b></h1>
+    <h2 style="font-family:Verdana, Geneva, sans-serif ; font-size:30px;"><b>Hospital</b></h2>
+</div>
+<div class="container">
+<nav class="navbar navbar-expand-lg navbar-dark" id="menu">
+    <button class="navbar-toggler">
+         <span class="navbar-toggler-icon" id="b1"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="item">
+    <ul class="navbar-nav  ml-5 mr-auto text-dark">
+        <li class="nav-item"><a class="nav-link text-muted" href="/hospital_home"><h5><b>Home</b></h5></a></li>
+        <li class="nav-item"><a id="space" class="nav-link text-muted" href="/drreg"><h5><b>New Doctor</b></h5></a></li>
+        <li class="nav-item"><a id="space" class="nav-link text-muted" href="/show_drs"><h5><b>Doctors</b></h5></a></li>
+        <li class="nav-item"><a id="space" class="nav-link text-muted" href="/hospital_profile"><h5><b>Profile</b></h5></a></li>
+        <li class="nav-item"><a id="space" class="nav-link text-muted" href="/logout"><h5><b>Logout</b></h5></a></li></ul>
+    </div>
+
+</nav>
+
+    <div class="container" style="min-height:400px;">
+        {% block hm %}
+        {% endblock %}
+
+    </div>
+</div>
+<div class="container text-black-50" id="contact">
+<h4>Contact</h4>
+<p>Gmail : mydocter@gmail.com</p>
+<p>Contact : 768437567</p>
+<p>Website : www.mydocter.com</p>
+</div>
+</body>
+</html>
